@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pond - A place to reflect</title>
+	</head>
+	<body>
+		<font size='6'>Pond - This is your pond</font><br>
+		<p><b>{{ user.username }}</b></p>
+		<a href='/pond/add_reflection/'>Add a reflection</a><br/>
+		<a href='/pond/logout/'>Logout</a><br/>
+		{% if reflections %}
+			{% for r in reflections %}
+				<div style='background-color: #f0f0f0; margin-top: 5px;'>
+					Reflection made on <strong>{{ r.date }}</strong><br>
+					{{ r.content }}
+				</div>
+			{% endfor %}
+		{% endif %}
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pond - A place to reflect</title>
+	</head>
+	<body>
+		<font size='6'>Pond - Register</font><br>
+		<p>Think about what your day has been today. Have you accomplished<br>
+		everything you set out to do when you woke up? Are you satisfied?</p>
+		<form name="register" method="POST" action="/pond/register/">{% csrf_token %}
+			{{ user_form.as_p }}
+
+			<input type="submit" name="submit" value=" Register! " />
+		</form>
+	</body>
+</html>

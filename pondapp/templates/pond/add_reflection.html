@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pond - A place to reflect</title>
+	</head>
+	<body>
+		<font size='6'>Pond - Add a reflection</font><br>
+		<p>Think about what your day has been today. Have you accomplished<br>
+		everything you set out to do when you woke up? Are you satisfied?</p>
+		<form name="add_reflection" method="POST" action="/pond/add_reflection/">{% csrf_token %}
+			{{ reflection_form.as_p }}
+
+			<input type="submit" name="submit" value=" Add Reflection! " />
+		</form>
+	</body>
+</html>

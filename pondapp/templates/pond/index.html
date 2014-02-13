@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pond - A place to reflect</title>
+	</head>
+	<body>
+		{% if user.is_authenticated %}
+			<script type='text/javascript'>
+				window.location.href = "/pond/home/"
+			</script>
+		{% else %}
+			<font size='6'>Pond - A place to reflect</font><br>
+			<p>Our lives are often wild and crazy. Come to Pond at the end<br>
+			of the day to take a look at your reflection and just ponder.</p>
+			<a href='/pond/add_reflection/'>Add a reflection</a><br/>
+			<a href='/pond/login/'>Login</a><br/>
+			<a href='/pond/register/'>Register</a><br/>
+		{% endif %}
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pond - A place to reflect</title>
+	</head>
+	<body>
+		<font size='6'>Pond - Login</font><br>
+		<p>Think about what your day has been today. Have you accomplished<br>
+		everything you set out to do when you woke up? Are you satisfied?</p>
+		<form name="login" method="POST" action="/pond/login/">{% csrf_token %}
+			Username: <input type="text" name="username" size="50" /><br/>
+			Password: <input type="password" name="password" size="50 /"><br/>
+
+			<input type="submit" name="submit" value=" Login! " />
+		</form>
+	</body>
+</html>
