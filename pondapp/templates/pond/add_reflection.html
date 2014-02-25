@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title>Pond - Reflect</title>
+		<link href="{% static "css/main.css" %}" rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		</head>
+	<body>
+		<h1><a href='/pond/'><font color='black'>Pond</font></a> - Make a reflection</h1>
+		<p>Think about what your day has been today. Have you accomplished<br>
+		everything you set out to do when you woke up? Are you satisfied?</p>
+		<form name='add_reflection' method='POST' action='/pond/add_reflection/' enctype='multipart/form-data'>
+			{% csrf_token %}
+			<strong>Make a reflection.</strong><br>
+			<textarea id='reflection' name='reflection' class='reflection_input'></textarea><br>
+			<input type='submit' name='submit' value=" Reflect! " />
+		</form>
+	</body>
+</html>
+
+<!--<!DOCTYPE html>
 <html>
 	<head>
 		<title>Pond - A place to reflect</title>
@@ -13,4 +35,4 @@
 			<input type="submit" name="submit" value=" Add Reflection! " />
 		</form>
 	</body>
-</html>
+</html>-->

@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title>Pond - A place to reflect</title>
+		<link href="{% static "css/main.css" %}" rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		</head>
+	<body>
+		{% if user.is_authenticated %}
+			<script type='text/javascript'>
+				window.location.href = "/pond/home/"
+			</script>
+		{% else %}
+			<h1 style='margin-bottom: 0px;'><a href='/pond/'><font color='black'>Pond</font></a> </h1>
+			<h3 style='margin-top: 1px;'>What do you see in your reflection?</h3>
+			<p>Our lives are often wild and crazy. Things happen that we can't understand. Come to Pond
+			whenever you feel like staring inito your reflection and just ponder.</p>
+			<a href='/pond/login/'>Login to Pond</a><br />
+			<a href='/pond/register/'>Join Pond</a><br />
+		{% endif %}
+	</body>
+</html>
+
+<!--<!DOCTYPE html>
 <html>
 	<head>
 		<title>Pond - A place to reflect</title>
@@ -16,4 +41,4 @@
 			<a href='/pond/register/'>Register</a><br/>
 		{% endif %}
 	</body>
-</html>
+</html>-->

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class ReflectionForm(forms.ModelForm):
 	class Meta:
 		model = Reflection
-		fields = ('content',)
+		fields = ()
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())

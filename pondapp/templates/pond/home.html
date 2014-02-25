@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title>Pond - Home</title>
+		<link href="{% static "css/main.css" %}" rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		</head>
+	<body>
+
+		<h1><a href='/pond/home/'><font color='black'>Pond</font></a> - This is your pond.</h1>
+		<p><strong>{{ user.first_name }} {{ user.last_name }}</strong> - {{ user.username }}<br>
+		{{ user.profile.bio }} </p>
+		<a href='/pond/add_reflection/'>Reflect</a><br />
+		<a href='/pond/logout/'>Logout</a><br /><br />
+		{% if reflections %}
+			{% for r in reflections %}
+				<div class='reflection'>
+					<b>{{ r.date }}</b> by {{ r.user.username }}<br>
+					{{ r.content }}
+				</div><br>
+			{% endfor %}
+		{% else %}
+			<font>You haven't made any reflections yet.</font>
+		{% endif %}
+	</body>
+</html>
+
+<!--<!DOCTYPE html>
 <html>
 	<head>
 		<title>Pond - A place to reflect</title>
@@ -17,4 +46,4 @@
 			{% endfor %}
 		{% endif %}
 	</body>
-</html>
+</html>-->

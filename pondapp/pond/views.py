@@ -18,7 +18,9 @@ def add_reflection(request):
 	if request.method == "POST":
 		reflection_form = ReflectionForm(request.POST)
 		if reflection_form.is_valid():
+			reflection_cont = request.POST['reflection']
 			reflection = reflection_form.save(commit=False)
+			reflection.content = reflection_cont
 			reflection.date = timezone.now()
 			u = User.objects.get(username=request.user)
 			reflection.user = u
@@ -34,7 +36,7 @@ def add_reflection(request):
 def home(request):
 	context = RequestContext(request)
 	u = User.objects.get(username=request.user)
-	reflections = Reflection.objects.filter(user=u)
+	reflections = Reflection.objects.filter(user=u).order_by('-date')
 	context_dict = {'user': u, 'reflections': reflections}
 	return render_to_response("pond/home.html", context_dict, context)
 
